@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bouquet Elegante - P.R. Floral Marketing</title>
+    <link rel="icon" type="image/png" href="logo_pr_floral_marketing2.png">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary-green: #8BC34A; --accent-pink: #E91E63; --accent-orange: #FF9800; --accent-rose: #F06292; --light-green: #C5E1A5; --cream: #FFF8E1; --dark-text: #2E3B27; }
+        body { font-family: 'Georgia', 'Times New Roman', serif; line-height: 1.8; color: var(--dark-text); background: linear-gradient(135deg, #FFFEF7 0%, #FFF8F0 50%, #F8FFF4 100%); background-attachment: fixed; }
+        header { background: linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(255,248,225,0.95) 50%, rgba(255,255,255,0.95) 100%); backdrop-filter: blur(10px); padding: 1rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(139, 195, 74, 0.1); border-bottom: 2px solid var(--light-green); }
+        nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo img { height: 50px; border-radius: 50%; }
+        .logo-text { font-size: 1.5rem; font-weight: bold; background: linear-gradient(135deg, var(--primary-green), var(--accent-pink)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .back-button { padding: 10px 20px; background: linear-gradient(135deg, var(--primary-green), var(--accent-pink)); color: white; text-decoration: none; border-radius: 25px; font-family: 'Segoe UI', sans-serif; font-weight: 600; box-shadow: 0 4px 15px rgba(139, 195, 74, 0.3); }
+        .product-detail { max-width: 1200px; margin: 120px auto 60px; padding: 0 2rem; }
+        .product-container { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; background: white; padding: 3rem; border-radius: 30px; box-shadow: 0 15px 40px rgba(139, 195, 74, 0.15); border: 3px solid var(--light-green); }
+        .main-image { width: 100%; height: 600px; object-fit: cover; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .product-category { display: inline-block; padding: 8px 20px; background: linear-gradient(135deg, var(--light-green), var(--cream)); border-radius: 20px; font-size: 0.9rem; font-weight: bold; margin-bottom: 1rem; font-family: 'Segoe UI', sans-serif; }
+        .product-title { font-size: 3rem; background: linear-gradient(135deg, var(--primary-green), var(--accent-pink)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 1rem; font-weight: bold; }
+        .product-price { font-size: 2.5rem; background: linear-gradient(135deg, var(--accent-pink), var(--accent-orange)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: bold; margin-bottom: 2rem; }
+        .product-description { font-size: 1.2rem; line-height: 2; margin-bottom: 2rem; padding: 1.5rem; background: linear-gradient(135deg, rgba(255,248,225,0.3), rgba(197,225,165,0.1)); border-radius: 15px; border-left: 4px solid var(--primary-green); }
+        .features-list { list-style: none; }
+        .features-list li { padding: 0.8rem 0; padding-left: 2rem; position: relative; font-family: 'Segoe UI', sans-serif; }
+        .features-list li::before { content: '✿'; position: absolute; left: 0; color: var(--accent-rose); font-size: 1.3rem; }
+        .product-specs { background: linear-gradient(135deg, rgba(197,225,165,0.2), rgba(255,248,225,0.3)); padding: 1.5rem; border-radius: 15px; margin-bottom: 2rem; }
+        .specs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .spec-label { font-weight: bold; color: var(--primary-green); }
+        .cta-buttons { display: flex; gap: 1rem; }
+        .cta-button { flex: 1; padding: 18px 30px; background: linear-gradient(135deg, var(--accent-pink), var(--accent-orange)); color: white; text-decoration: none; border-radius: 50px; font-size: 1.1rem; font-weight: bold; font-family: 'Segoe UI', sans-serif; text-align: center; box-shadow: 0 6px 20px rgba(233, 30, 99, 0.3); }
+        .cta-button span { position: relative; z-index: 1; }
+        .cta-button.secondary { background: linear-gradient(135deg, var(--primary-green), var(--light-green)); }
+        footer { background: linear-gradient(135deg, var(--dark-text) 0%, #1a2414 100%); color: white; padding: 3rem 2rem 1rem; margin-top: 4rem; }
+        .footer-content { text-align: center; color: #bbb; }
+        @media (max-width: 968px) { .product-container { grid-template-columns: 1fr; } .main-image { height: 400px; } }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="logo_pr_floral_marketing2.png" alt="Logo">
+                <span class="logo-text">P.R. Floral Marketing</span>
+            </a>
+            <a href="index.html#productos" class="back-button">← Volver</a>
+        </nav>
+    </header>
+    <section class="product-detail">
+        <div class="product-container">
+            <div><img src="RedRoseBouquet.jpg" alt="Bouquet Elegante" class="main-image"></div>
+            <div>
+                <span class="product-category">Ramos Premium</span>
+                <h1 class="product-title">Bouquet Elegante</h1>
+                <div class="product-price">Desde $120/bouquet</div>
+                <div class="product-description">
+                    Ramo de rosas rojas envuelto en papel premium dorado. Presentación artística y sofisticada 
+                    ideal para ocasiones especiales, regalos corporativos y eventos de alto nivel.
+                </div>
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="font-size: 1.5rem; background: linear-gradient(135deg, var(--accent-orange), var(--primary-green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 1rem; font-weight: bold;">Características</h3>
+                    <ul class="features-list">
+                        <li>Rosas premium seleccionadas a mano</li>
+                        <li>Envoltorio de papel dorado de lujo</li>
+                        <li>Presentación artística profesional</li>
+                        <li>Ideal para regalos ejecutivos</li>
+                        <li>Duración de 7-10 días</li>
+                        <li>Incluye tarjeta personalizable</li>
+                    </ul>
+                </div>
+                <div class="product-specs">
+                    <h3 style="font-weight: bold; margin-bottom: 1rem;">Especificaciones</h3>
+                    <div class="specs-grid">
+                        <div><span class="spec-label">Rosas:</span> 12-15 unidades</div>
+                        <div><span class="spec-label">Color:</span> Rojo intenso</div>
+                        <div><span class="spec-label">Largo:</span> 50-60cm</div>
+                        <div><span class="spec-label">Pedido mín:</span> 3 bouquets</div>
+                    </div>
+                </div>
+                <div class="cta-buttons">
+                    <a href="servicios-b2b.html" class="cta-button"><span>Servicios B2B</span></a>
+                    <a href="index.html#productos" class="cta-button secondary"><span>Más Productos</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer><div class="footer-content"><p>&copy; 2025 P.R. Floral Marketing. Todos los derechos reservados.</p></div></footer>
+</body>
+</html>

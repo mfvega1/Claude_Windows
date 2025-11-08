@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P.R. Floral Marketing - Distribuidor B2B de Flores Premium</title>
+    <link rel="icon" type="image/png" href="logo_pr_floral_marketing2.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-green: #8BC34A;
+            --accent-pink: #E91E63;
+            --accent-orange: #FF9800;
+            --accent-rose: #F06292;
+            --light-green: #C5E1A5;
+            --cream: #FFF8E1;
+            --dark-text: #2E3B27;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.8;
+            color: var(--dark-text);
+            background: linear-gradient(135deg, #FFFEF7 0%, #FFF8F0 50%, #F8FFF4 100%);
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+
+        /* Decorative Flower Elements */
+        .flower-decoration {
+            position: absolute;
+            font-size: 4rem;
+            opacity: 0.15;
+            z-index: 1;
+            animation: gentle-sway 6s ease-in-out infinite;
+        }
+
+        @keyframes gentle-sway {
+            0%, 100% { transform: rotate(-5deg) translateY(0); }
+            50% { transform: rotate(5deg) translateY(-10px); }
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(255,248,225,0.95) 50%, rgba(255,255,255,0.95) 100%);
+            backdrop-filter: blur(10px);
+            color: var(--dark-text);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(139, 195, 74, 0.1);
+            border-bottom: 2px solid var(--light-green);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--primary-green), var(--accent-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--dark-text);
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 500;
+            position: relative;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-green), var(--accent-pink));
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: var(--accent-pink);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            margin-top: 70px;
+            overflow: hidden;
+        }
+
+        .hero-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-pink), var(--accent-orange));
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            font-family: 'Segoe UI', sans-serif;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 6px 20px rgba(233, 30, 99, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-rose));
+            transition: left 0.3s;
+        }
+
+        .cta-button:hover::before {
+            left: 0;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(233, 30, 99, 0.4);
+        }
+
+        .cta-button span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* Services Section */
+        .services {
+            background: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(197,225,165,0.2) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .services::before {
+            content: '🌿';
+            position: absolute;
+            top: 50px;
+            right: 100px;
+            font-size: 8rem;
+            opacity: 0.08;
+            animation: gentle-sway 8s ease-in-out infinite;
+        }
+
+        .services h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, var(--primary-green), var(--accent-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .services h2::after {
+            content: '✿';
+            position: absolute;
+            top: -20px;
+            right: -40px;
+            font-size: 2rem;
+            color: var(--accent-rose);
+            opacity: 0.5;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,248,225,0.95) 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(139, 195, 74, 0.15);
+            transition: all 0.4s ease;
+            text-align: center;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--light-green) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .service-card:hover::before {
+            opacity: 0.3;
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px) rotate(1deg);
+            box-shadow: 0 15px 35px rgba(233, 30, 99, 0.2);
+            border-color: var(--accent-rose);
+        }
+
+        .service-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            filter: drop-shadow(2px 2px 4px rgba(139, 195, 74, 0.3));
+            animation: gentle-bounce 3s ease-in-out infinite;
+        }
+
+        @keyframes gentle-bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .service-card h3 {
+            background: linear-gradient(135deg, var(--primary-green), var(--accent-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            font-size: 1.6rem;
+            font-weight: bold;
+        }
+
+        /* Products Section */
+        .products {
+            background: linear-gradient(135deg, rgba(255,248,225,0.5) 0%, rgba(255,255,255,0.8) 100%);
+            position: relative;
+        }
+
+        .products::before {
+            content: '🌺';
+            position: absolute;
+            top: 100px;
+            left: 50px;
+            font-size: 10rem;
+            opacity: 0.06;
+            animation: gentle-sway 10s ease-in-out infinite;
+        }
+
+        .products h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .products h2::before {
+            content: '❀';
+            position: absolute;
+            left: -50px;
+            top: 0;
+            font-size: 2rem;
+            color: var(--primary-green);
+            opacity: 0.5;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(139, 195, 74, 0.15);
+            transition: all 0.4s ease;
+            border: 3px solid transparent;
+            position: relative;
+            display: block;
+        }
+
+        a.product-card {
+            cursor: pointer;
+        }
+
+        .product-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 25px;
+            padding: 3px;
+            background: linear-gradient(135deg, var(--primary-green), var(--accent-pink), var(--accent-orange));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .product-card:hover::after {
+            opacity: 1;
+        }
+
+        .product-card:hover {
+            transform: translateY(-15px) rotate(-2deg);
+            box-shadow: 0 20px 40px rgba(233, 30, 99, 0.25);
+        }
+
+        .product-image {
+            height: 280px;
+            background: linear-gradient(135deg, var(--cream) 0%, white 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image::before {
+            content: '✿';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 3rem;
+            color: var(--accent-rose);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .product-card:hover .product-image::before {
+            opacity: 0.3;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.15) rotate(2deg);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-info h3 {
+            background: linear-gradient(135deg, var(--primary-green), var(--accent-orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+
+        .product-info p {
+            color: var(--dark-text);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .price {
+            background: linear-gradient(135deg, var(--accent-pink), var(--accent-orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--accent-pink) 50%, var(--accent-orange) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefits::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate-gradient 20s linear infinite;
+        }
+
+        @keyframes rotate-gradient {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .benefits h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            position: relative;
+        }
+
+        .benefits-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .benefit-item {
+            background: rgba(255,255,255,0.15);
+            padding: 2.5rem;
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255,255,255,0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .benefit-item:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .benefit-item h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        /* Video Gallery Section */
+        .video-gallery {
+            background: linear-gradient(135deg, rgba(197,225,165,0.2) 0%, rgba(255,255,255,0.8) 100%);
+            position: relative;
+        }
+
+        .video-gallery::before {
+            content: '🌻';
+            position: absolute;
+            bottom: 50px;
+            right: 80px;
+            font-size: 12rem;
+            opacity: 0.05;
+            animation: gentle-sway 12s ease-in-out infinite;
+        }
+
+        .video-gallery h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, var(--accent-orange), var(--primary-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: bold;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .video-card {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(139, 195, 74, 0.2);
+            transition: all 0.4s ease;
+            border: 3px solid transparent;
+        }
+
+        .video-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(233, 30, 99, 0.25);
+            border-color: var(--accent-rose);
+        }
+
+        .video-card video {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+        }
+
+        .video-info {
+            padding: 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(255,255,255,1) 0%, var(--cream) 100%);
+        }
+
+        .video-info h3 {
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+
+        .video-info p {
+            color: var(--dark-text);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--dark-text) 0%, #1a2414 100%);
+            color: white;
+            padding: 3rem 2rem 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '🌿';
+            position: absolute;
+            bottom: 20px;
+            right: 50px;
+            font-size: 6rem;
+            opacity: 0.08;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--light-green), var(--accent-rose));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+            color: #bbb;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                height: 350px;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .logo-text {
+                font-size: 1.2rem;
+            }
+
+            .logo img {
+                height: 40px;
+            }
+
+            .services h2,
+            .products h2,
+            .benefits h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="logo_pr_floral_marketing2.png" alt="P.R. Floral Marketing Logo">
+                <span class="logo-text">P.R. Floral Marketing</span>
+            </div>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="servicios-b2b.html">Servicios B2B</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#beneficios">Beneficios</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <video class="hero-video" autoplay loop muted playsinline>
+            <source src="SunflowerBannerCloseup.mp4" type="video/mp4">
+            Tu navegador no soporta videos HTML5.
+        </video>
+    </section>
+
+    <!-- Products Section -->
+    <section id="productos" class="products">
+        <div class="container">
+            <h2>Catálogo de Productos</h2>
+            <div class="products-grid">
+                <a href="rosas-tallo-individual.html" class="product-card" style="text-decoration: none; color: inherit;">
+                    <div class="product-image">
+                        <img src="RedRoseStem_ItemMainIMage.jpg" alt="Rosas Rojas Premium">
+                    </div>
+                    <div class="product-info">
+                        <h3>Rosas de Tallo Individual</h3>
+                        <p>Rosas de tallo largo de la más alta calidad. Perfectas para arreglos elegantes.</p>
+                        <div class="price">Desde $85/caja</div>
+                    </div>
+                </a>
+                <a href="bouquet-elegante.html" class="product-card" style="text-decoration: none; color: inherit;">
+                    <div class="product-image">
+                        <img src="RedRoseBouquet.jpg" alt="Bouquet de Rosas Rojas">
+                    </div>
+                    <div class="product-info">
+                        <h3>Bouquet Elegante</h3>
+                        <p>Ramo de rosas envuelto en papel premium. Presentación artística y sofisticada.</p>
+                        <div class="price">Desde $120/bouquet</div>
+                    </div>
+                </a>
+                <a href="caja-rosas-premium.html" class="product-card" style="text-decoration: none; color: inherit;">
+                    <div class="product-image">
+                        <img src="RedRoseBox.jpg" alt="Caja de Rosas">
+                    </div>
+                    <div class="product-info">
+                        <h3>Caja de Rosas Premium</h3>
+                        <p>Rosas en caja de regalo con lazo dorado. Ideal para eventos corporativos especiales.</p>
+                        <div class="price">Desde $95/caja</div>
+                    </div>
+                </a>
+                <a href="alstroemeria-naranja.html" class="product-card" style="text-decoration: none; color: inherit;">
+                    <div class="product-image">
+                        <img src="AlstromeriaNaranjaPerf.jpg" alt="Alstroemeria Naranja">
+                    </div>
+                    <div class="product-info">
+                        <h3>Alstroemeria Naranja</h3>
+                        <p>Flores vibrantes con larga duración. Ideal para arreglos coloridos y eventos.</p>
+                        <div class="price">Desde $45/caja</div>
+                    </div>
+                </a>
+                <a href="alstroemeria-roja.html" class="product-card" style="text-decoration: none; color: inherit;">
+                    <div class="product-image">
+                        <img src="AlstromeriaRojoPerf.jpg" alt="Alstroemeria Roja">
+                    </div>
+                    <div class="product-info">
+                        <h3>Alstroemeria Roja</h3>
+                        <p>Flores exóticas de color rojo intenso. Perfectas para ocasiones especiales.</p>
+                        <div class="price">Desde $48/caja</div>
+                    </div>
+                </a>
+                <a href="anturios-rojos.html" class="product-card" style="text-decoration: none; color: inherit;">
+                    <div class="product-image">
+                        <img src="Antulios.jpg" alt="Anturios Rojos">
+                    </div>
+                    <div class="product-info">
+                        <h3>Anturios Rojos</h3>
+                        <p>Flores tropicales elegantes. Larga duración y presentación impactante.</p>
+                        <div class="price">Desde $95/ramo</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="beneficios" class="benefits">
+        <div class="container">
+            <h2>¿Por Qué Elegirnos?</h2>
+            <div class="benefits-list">
+                <div class="benefit-item">
+                    <h3>✓ Calidad Garantizada</h3>
+                    <p>Todas nuestras flores pasan controles de calidad rigurosos. Garantía de frescura o reemplazo.</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>✓ Experiencia de 15+ Años</h3>
+                    <p>Más de 15 años abasteciendo a floristerías y empresas en toda la región.</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>✓ Asesoría Especializada</h3>
+                    <p>Nuestro equipo te asesora sobre tendencias, cuidado y selección de productos.</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>✓ Portal B2B Online</h3>
+                    <p>Plataforma exclusiva para realizar pedidos 24/7 y consultar tu historial.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Gallery Section -->
+    <section class="video-gallery">
+        <div class="container">
+            <h2>Nuestras Flores en Acción</h2>
+            <div class="video-grid">
+                <div class="video-card">
+                    <video autoplay loop muted playsinline>
+                        <source src="SunflowerBannerLogo.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-info">
+                        <h3>Campo de Girasoles</h3>
+                        <p>Directo de nuestros productores</p>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <video autoplay loop muted playsinline>
+                        <source src="SunFLowerBannerVideo.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-info">
+                        <h3>Girasoles en Movimiento</h3>
+                        <p>La frescura que tu negocio necesita</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services B2B Section -->
+    <section id="servicios" class="services">
+        <div class="container">
+            <h2>Nuestros Servicios B2B</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🚚</div>
+                    <h3>Entregas Diarias</h3>
+                    <p>Servicio de entrega temprana todos los días de la semana para garantizar la frescura de tu inventario.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📦</div>
+                    <h3>Pedidos Personalizados</h3>
+                    <p>Adaptamos nuestros pedidos a las necesidades específicas de tu negocio con cantidades flexibles.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💰</div>
+                    <h3>Precios Mayoristas</h3>
+                    <p>Precios competitivos con descuentos por volumen y condiciones de pago flexibles para tu empresa.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🌍</div>
+                    <h3>Importación Directa</h3>
+                    <p>Importamos directamente desde los mejores productores de Colombia, Ecuador, Holanda y Kenia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>P.R. Floral Marketing</h3>
+                <p>Tu socio confiable en flores mayoristas desde 2008.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Servicios</h3>
+                <ul>
+                    <li><a href="#servicios">Entregas Diarias</a></li>
+                    <li><a href="#servicios">Pedidos Personalizados</a></li>
+                    <li><a href="#servicios">Importación Directa</a></li>
+                    <li><a href="#servicios">Asesoría</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Información de Contacto</h3>
+                <ul>
+                    <li>📞 +1 787 555 0123</li>
+                    <li>📧 ventas@prfloralmarketing.com</li>
+                    <li>📍 San Juan, Puerto Rico</li>
+                    <li>🕐 Lun-Sab: 6:00 AM - 4:00 PM</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Síguenos</h3>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">WhatsApp Business</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 P.R. Floral Marketing. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll para los enlaces de navegación
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios B2B - P.R. Floral Marketing</title>
+    <link rel="icon" type="image/png" href="logo_pr_floral_marketing2.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-green: #8BC34A;
+            --accent-pink: #E91E63;
+            --accent-orange: #FF9800;
+            --accent-rose: #F06292;
+            --light-green: #C5E1A5;
+            --cream: #FFF8E1;
+            --dark-text: #2E3B27;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.8;
+            color: var(--dark-text);
+            background: linear-gradient(135deg, #FFFEF7 0%, #FFF8F0 50%, #F8FFF4 100%);
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(255,248,225,0.95) 50%, rgba(255,255,255,0.95) 100%);
+            backdrop-filter: blur(10px);
+            color: var(--dark-text);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(139, 195, 74, 0.1);
+            border-bottom: 2px solid var(--light-green);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--primary-green), var(--accent-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, var(--primary-green), var(--accent-pink));
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-family: 'Segoe UI', sans-serif;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(139, 195, 74, 0.3);
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 195, 74, 0.4);
+        }
+
+        /* Hero Section */
+        .hero-b2b {
+            margin-top: 80px;
+            padding: 80px 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--accent-pink) 50%, var(--accent-orange) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-b2b::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate-gradient 20s linear infinite;
+        }
+
+        @keyframes rotate-gradient {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-b2b h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero-b2b p {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+
+        .promo-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            border-radius: 50px;
+            border: 2px solid rgba(255,255,255,0.5);
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Services Grid */
+        .services-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, var(--primary-green), var(--accent-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: bold;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,248,225,0.95) 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(139, 195, 74, 0.15);
+            transition: all 0.4s ease;
+            text-align: center;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--light-green) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .service-card:hover::before {
+            opacity: 0.3;
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px) rotate(1deg);
+            box-shadow: 0 15px 35px rgba(233, 30, 99, 0.2);
+            border-color: var(--accent-rose);
+        }
+
+        .service-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            filter: drop-shadow(2px 2px 4px rgba(139, 195, 74, 0.3));
+            animation: gentle-bounce 3s ease-in-out infinite;
+        }
+
+        @keyframes gentle-bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .service-card h3 {
+            background: linear-gradient(135deg, var(--primary-green), var(--accent-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            font-size: 1.6rem;
+            font-weight: bold;
+        }
+
+        .service-card p {
+            color: var(--dark-text);
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        /* Registration CTA Section */
+        .registration-cta {
+            background: linear-gradient(135deg, rgba(255,248,225,0.5) 0%, rgba(197,225,165,0.3) 100%);
+            padding: 5rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .registration-cta::before {
+            content: '🌺';
+            position: absolute;
+            top: 50px;
+            left: 100px;
+            font-size: 10rem;
+            opacity: 0.05;
+        }
+
+        .registration-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 4rem;
+            border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(139, 195, 74, 0.2);
+            border: 3px solid var(--light-green);
+            position: relative;
+            z-index: 1;
+        }
+
+        .registration-content h2 {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, var(--accent-pink), var(--accent-orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+        }
+
+        .discount-highlight {
+            background: linear-gradient(135deg, var(--primary-green), var(--accent-pink));
+            color: white;
+            padding: 1.5rem 3rem;
+            border-radius: 20px;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin: 2rem 0;
+            box-shadow: 0 8px 25px rgba(233, 30, 99, 0.3);
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 8px 25px rgba(233, 30, 99, 0.3); }
+            50% { box-shadow: 0 8px 35px rgba(233, 30, 99, 0.5); }
+        }
+
+        .requirements {
+            text-align: left;
+            margin: 2rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(255,248,225,0.5), rgba(197,225,165,0.2));
+            border-radius: 15px;
+            border-left: 4px solid var(--primary-green);
+        }
+
+        .requirements h3 {
+            color: var(--dark-text);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .requirements ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .requirements li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            font-family: 'Segoe UI', sans-serif;
+            color: var(--dark-text);
+        }
+
+        .requirements li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-green);
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .cta-button-large {
+            display: inline-block;
+            padding: 20px 60px;
+            background: linear-gradient(135deg, var(--accent-pink), var(--accent-orange));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            font-family: 'Segoe UI', sans-serif;
+            transition: all 0.3s;
+            box-shadow: 0 8px 25px rgba(233, 30, 99, 0.4);
+            position: relative;
+            overflow: hidden;
+            margin-top: 2rem;
+        }
+
+        .cta-button-large::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-rose));
+            transition: left 0.4s;
+        }
+
+        .cta-button-large:hover::before {
+            left: 0;
+        }
+
+        .cta-button-large:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 12px 35px rgba(233, 30, 99, 0.5);
+        }
+
+        .cta-button-large span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Benefits List */
+        .benefits-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .benefit-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(139, 195, 74, 0.15);
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(233, 30, 99, 0.2);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-item h3 {
+            background: linear-gradient(135deg, var(--accent-orange), var(--primary-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--dark-text) 0%, #1a2414 100%);
+            color: white;
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-content p {
+            color: #bbb;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-b2b h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-b2b p {
+                font-size: 1.1rem;
+            }
+
+            .registration-content {
+                padding: 2rem;
+            }
+
+            .discount-highlight {
+                font-size: 1.3rem;
+                padding: 1rem 2rem;
+            }
+
+            .cta-button-large {
+                font-size: 1.2rem;
+                padding: 15px 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="logo_pr_floral_marketing2.png" alt="P.R. Floral Marketing Logo">
+                <span class="logo-text">P.R. Floral Marketing</span>
+            </a>
+            <a href="index.html" class="back-button">
+                <span>← Volver al Inicio</span>
+            </a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-b2b">
+        <div class="hero-content">
+            <div class="promo-badge">🌹 OFERTA EXCLUSIVA PARA COMERCIANTES 🌹</div>
+            <h1>Únete a Nuestro Programa B2B</h1>
+            <p>Accede a precios mayoristas exclusivos, entregas prioritarias y beneficios especiales para tu negocio</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <h2 class="section-title">Nuestros Servicios B2B</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🚚</div>
+                <h3>Entregas Diarias</h3>
+                <p>Servicio de entrega temprana todos los días de la semana para garantizar la frescura de tu inventario.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📦</div>
+                <h3>Pedidos Personalizados</h3>
+                <p>Adaptamos nuestros pedidos a las necesidades específicas de tu negocio con cantidades flexibles.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💰</div>
+                <h3>Precios Mayoristas</h3>
+                <p>Precios competitivos con descuentos por volumen y condiciones de pago flexibles para tu empresa.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🌍</div>
+                <h3>Importación Directa</h3>
+                <p>Importamos directamente desde los mejores productores de Colombia, Ecuador, Holanda y Kenia.</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">Beneficios Exclusivos B2B</h2>
+        <div class="benefits-list">
+            <div class="benefit-item">
+                <div class="benefit-icon">✨</div>
+                <h3>Calidad Premium</h3>
+                <p>Flores seleccionadas de la más alta calidad</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">⚡</div>
+                <h3>Entregas Rápidas</h3>
+                <p>Servicio prioritario para tu negocio</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">📊</div>
+                <h3>Portal Online</h3>
+                <p>Plataforma exclusiva para pedidos 24/7</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">🤝</div>
+                <h3>Asesoría Experta</h3>
+                <p>Soporte dedicado para tu negocio</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration CTA -->
+    <section class="registration-cta">
+        <div class="registration-content">
+            <h2>¡Regístrate Como Comerciante!</h2>
+            
+            <div class="discount-highlight">
+                🎁 RECIBE 15% DE DESCUENTO ESPECIAL 🎁
+            </div>
+
+            <p style="font-size: 1.2rem; margin: 2rem 0; color: var(--dark-text);">
+                Al registrarte como florista o comerciante autorizado, obtendrás acceso inmediato a descuentos exclusivos, 
+                precios mayoristas y condiciones especiales de pago.
+            </p>
+
+            <div class="requirements">
+                <h3>Requisitos para Registro:</h3>
+                <ul>
+                    <li>Registro de comerciante válido y vigente</li>
+                    <li>Licencia de negocio activa</li>
+                    <li>Documentación fiscal al día</li>
+                    <li>Comprobante de dirección comercial</li>
+                </ul>
+            </div>
+
+            <a href="index.html" class="cta-button-large">
+                <span>🚀 COMIENZA AHORA</span>
+            </a>
+
+            <p style="margin-top: 2rem; font-size: 0.9rem; color: #666; font-family: 'Segoe UI', sans-serif;">
+                *Oferta válida para nuevos comerciantes registrados. Sujeto a verificación de documentos.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 P.R. Floral Marketing. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
