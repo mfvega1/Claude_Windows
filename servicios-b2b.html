@@ -36,7 +36,7 @@
             background: linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(255,248,225,0.95) 50%, rgba(255,255,255,0.95) 100%);
             backdrop-filter: blur(10px);
             color: var(--dark-text);
-            padding: 1rem 0;
+            padding: 1.5rem 0;
             position: fixed;
             width: 100%;
             top: 0;
@@ -62,14 +62,14 @@
         }
 
         .logo img {
-            height: 50px;
+            height: 80px;
             width: auto;
             border-radius: 50%;
             transition: transform 0.3s;
         }
 
         .logo-text {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: bold;
             background: linear-gradient(135deg, var(--primary-green), var(--accent-pink));
             -webkit-background-clip: text;
@@ -99,7 +99,7 @@
 
         /* Hero Section */
         .hero-b2b {
-            margin-top: 80px;
+            margin-top: 110px;
             padding: 80px 2rem;
             text-align: center;
             background: linear-gradient(135deg, var(--primary-green) 0%, var(--accent-pink) 50%, var(--accent-orange) 100%);
@@ -438,6 +438,22 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            header {
+                padding: 1rem 0;
+            }
+
+            .logo-text {
+                font-size: 1.3rem;
+            }
+
+            .logo img {
+                height: 55px;
+            }
+
+            .hero-b2b {
+                margin-top: 80px;
+            }
+
             .hero-b2b h1 {
                 font-size: 2.2rem;
             }
